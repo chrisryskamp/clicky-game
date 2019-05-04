@@ -1,21 +1,19 @@
 import React, { Component } from "react";
-import FriendCard from "./components/FriendCard";
+import NameCard from "./components/NameCard";
 import Wrapper from "./components/Wrapper";
 import Title from "./components/Title";
-import friends from "./friends.json";
+import names from "./names.json";
 import "./App.css";
 
 class App extends Component {
   
   state = {
-    friends
+    names
   };
 
-  removeFriend = id => {
+  removeName = () => {
     
-    const friends = this.state.friends.filter(friend => friend.id !== id);
-    
-    this.setState({ friends });
+    this.setState({ name });
   };
 
   
@@ -23,15 +21,15 @@ class App extends Component {
     return (
       <Wrapper>
         <Title>Hockey Clicky-Game</Title>
-        {this.state.friends.map(friend => (
-          <FriendCard
-            removeFriend={this.removeFriend}
-            id={friend.id}
-            key={friend.id}
-            name={friend.name}
-            image={friend.image}
-            occupation={friend.occupation}
-            location={friend.location}
+        {this.state.names.map(name => (
+          <NameCard
+            removeName={this.removeName}
+            id={name.id}
+            key={name.id}
+            name={name.name}
+            image={name.image}
+            occupation={name.occupation}
+            location={name.location}
           />
         ))}
       </Wrapper>
